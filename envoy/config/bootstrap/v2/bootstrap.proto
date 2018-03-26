@@ -135,6 +135,13 @@ message Admin {
   // The TCP address that the administration server will listen on.
   envoy.api.v2.core.Address address = 3
       [(validate.rules).message.required = true, (gogoproto.nullable) = false];
+
+  message EndpointPath {
+    string path = 1;
+    map<string, string> query = 2;
+  }
+
+  map<string, EndpointPath> override_endpoint_paths_map = 4;
 }
 
 // Cluster manager :ref:`architecture overview <arch_overview_cluster_manager>`.
