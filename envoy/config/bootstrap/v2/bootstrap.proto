@@ -137,7 +137,7 @@ message Admin {
       [(validate.rules).message.required = true, (gogoproto.nullable) = false];
 
   message EndpointPath {
-    string path = 1;
+    string path = 1 [(validate.rules).string.min_bytes = 1];
     map<string, string> query = 2;
   }
 
